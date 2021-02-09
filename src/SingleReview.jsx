@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import * as api from "./api";
+import { Link } from "@reach/router";
 
 class SingleReview extends Component {
   state = { 
@@ -13,11 +14,10 @@ class SingleReview extends Component {
   }
 
   render() { 
-    console.log(this.state.review)
     const  review  = this.state.review
-    console.log(review.category)
     return (  
       <section>
+        <Link to="/">Go Back to the List</Link>
         <p>Category: {review.category} </p>
         <p>Designer : {review.designer}</p>
         <p>Title : {review.title}</p>
