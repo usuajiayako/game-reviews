@@ -18,4 +18,15 @@
 
 .reviewsList {
   border: 4px yellow solid;
+  list-style-type: none;
+}
+
+.review{
+  border: 4px rgb(88, 230, 235) solid;
+  color: rgb(10, 10, 10);
+  
+}
+
+.review:link {
+  text-decoration: none;
 }

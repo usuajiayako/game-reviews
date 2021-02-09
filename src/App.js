@@ -3,6 +3,7 @@ import Title from "./Title";
 import NavBar from "./NavBar";
 import ReviewsList from "./ReviewsList";
 import  { Router } from "@reach/router";
+import SingleReview from "./SingleReview";
 
 function App() {
   return (
@@ -10,8 +11,10 @@ function App() {
       <Title/>
       <NavBar/>
       <Router className="reviewsList">
-      <ReviewsList path="/" />
+      <ReviewsList path="/"/>
       <ReviewsList path="/reviews"/>
+      <ReviewsList path="/reviews/:category"/>
+      <SingleReview path="/reviews/single_review/:review_id"/>
       </Router>
     </div>
   );

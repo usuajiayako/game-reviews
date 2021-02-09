@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import * as api from "./api";
+import { Link } from "@reach/router";
 
 class NavBar extends Component {
   state = { 
@@ -7,12 +8,20 @@ class NavBar extends Component {
    }
 
   componentDidMount = () => {
-    console.log("in navbar CDM")
-    api.getCategories().then((categories) => this.setState({ categories }))
+    api.getCategories().then(( { categories } ) => 
+    this.setState({ categories })
+    )
   }
+
+ 
+  
   render() { 
     return ( 
-      <nav className="navbar">Nav bar here</nav>
+      <nav className="navbar">
+        { this.state.categories.map((category) =>
+          <Link to={`/reviews/${category.slug}`} key={category.slug}>{ category.slug }</Link>
+        )}
+      </nav>
      );
   }
 }
