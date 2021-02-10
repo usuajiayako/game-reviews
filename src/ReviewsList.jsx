@@ -15,7 +15,6 @@ class ReviewsList extends Component {
    }
 
    componentDidUpdate = (prevProps) => {
-     console.log(this.props.category)
      if (this.props.category !== prevProps.category)
     api.getReviews(this.props.category).then(({ reviews }) => {
       this.setState({ reviews })
@@ -23,7 +22,6 @@ class ReviewsList extends Component {
   }
 
   render() { 
-    console.log(this.state.reviews)
     return ( 
       <>
       <SortButton />

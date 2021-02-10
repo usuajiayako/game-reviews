@@ -10,6 +10,8 @@
 
 .navbar {
   border: 4px green solid;
+  display: flex;
+  justify-content: space-around;
 }
 
 .sortbutton {
@@ -37,4 +39,19 @@
 
 .comment {
   border: 4px rgb(240, 138, 6) solid;
+}
+
+.vote_button {
+  border: 4px rgb(240, 6, 189) solid;
+  display: flex;
+  justify-content: space-around;
+}
+
+.img {
+  height: 300px;
+  width: 350px;
+}
+
+.singleReview {
+  border: 4px rgb(6, 240, 25) solid;
 }

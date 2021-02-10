@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import * as api from "./api";
 import { Link } from "@reach/router";
 import Comments from "./Comments";
+import "./App.css";
+import UpdateVotes from "./UpdateVotes";
 
 class SingleReview extends Component {
   state = { 
@@ -10,7 +12,7 @@ class SingleReview extends Component {
   
   componentDidMount = () => {
     api.getReviewById(this.props.review_id)
-    .then(( { review }) => 
+    .then(({ review }) => 
     this.setState({ review }))
   }
 
@@ -24,10 +26,11 @@ class SingleReview extends Component {
         <p>Designer : {review.designer}</p>
         <p>Title : {review.title}</p>
         <p>Review : {review.review_body}</p>
-        <p>Votes : {review.votes}</p>
-        <p>Comments : {review.comment_count}</p>
-        <p>Image : <img src={review.review_img_url}/></p>
+        <UpdateVotes votes={review.votes} id={review.review_id} from="singleReview"/>
+        <p>{review.comment_count} comments</p>
+        <p><img src={review.review_img_url} className="img"/></p>
       </section>
+        <h2>Comments</h2>
         <Comments review_id={this.props.review_id}/>
       </>
     );
