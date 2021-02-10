@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import * as api from "./api";
 import { Link } from "@reach/router";
+import Comments from "./Comments";
 
 class SingleReview extends Component {
   state = { 
@@ -15,8 +16,9 @@ class SingleReview extends Component {
 
   render() { 
     const  review  = this.state.review
-    return (  
-      <section>
+    return ( 
+      <>
+      <section className="singleReview">
         <Link to="/">Go Back to the List</Link>
         <p>Category: {review.category} </p>
         <p>Designer : {review.designer}</p>
@@ -26,6 +28,8 @@ class SingleReview extends Component {
         <p>Comments : {review.comment_count}</p>
         <p>Image : <img src={review.review_img_url}/></p>
       </section>
+        <Comments review_id={this.props.review_id}/>
+      </>
     );
   }
 }

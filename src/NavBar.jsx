@@ -12,8 +12,6 @@ class NavBar extends Component {
     this.setState({ categories })
     )
   }
-
- 
   
   render() { 
     return ( 

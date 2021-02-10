@@ -18,3 +18,8 @@ export const getReviewById = (review_id) => {
   return axios.get(`https://game-reviews-ayakobland.herokuapp.com/api/reviews/${review_id}`)
   .then(res => res.data)
 }
+
+export const getComments = (review_id) => {
+  return axios.get(`https://game-reviews-ayakobland.herokuapp.com/api/reviews/${review_id}/comments`)
+  .then(res => res.data)
+}

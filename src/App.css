@@ -30,3 +30,11 @@
 .review:link {
   text-decoration: none;
 }
+
+.comments {
+  border: 4px rgb(17, 235, 17) solid;
+}
+
+.comment {
+  border: 4px rgb(240, 138, 6) solid;
+}
