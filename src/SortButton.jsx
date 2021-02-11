@@ -1,7 +1,12 @@
+import "./App.css";
 
-function SortButton(){
+function SortButton(props){
   return (
-    <button className="sortbutton" >Sort buttons here</button>
+    <section className="sortbutton">Sortby:
+      <button className="sortby-date" onClick={() => {props.sortby("created_at")}}>Date</button>
+      <button className="sortby-commentCount" onClick={() => {props.sortby("comment_count")}}>Comment count</button>
+      <button className="sortby-changeOrder">⬆️⬇️</button>
+    </section>
     );
 }
 

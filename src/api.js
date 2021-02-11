@@ -5,12 +5,14 @@ export const getCategories = () => {
  .then(res => res.data)
 }
 
-export const getReviews = (category) => {
-  if(category) {
-    return axios.get(`https://game-reviews-ayakobland.herokuapp.com/api/reviews?category=${category}`).then(res => res.data)
-  } else {
-    return axios.get(`https://game-reviews-ayakobland.herokuapp.com/api/reviews`).then(res => res.data)
-  }
+export const getReviews = (category, sortby) => {
+  console.log("c", category)
+  console.log("s", sortby)
+    return axios.get(`https://game-reviews-ayakobland.herokuapp.com/api/reviews`, { params: {
+      category: category,
+      sort_by: sortby,
+    }
+    }).then(res => res.data)
 }
 
 export const getReviewById = (review_id) => {
