@@ -25,7 +25,6 @@ class ReviewsList extends Component {
       || this.state.owner !== prevState.owner)
      api.getReviews(this.props.category, this.state.sort_by, this.state.order, this.state.owner)
      .then(({ reviews }) => this.setState({ reviews }))
-  
   }
 
   sort_by = (sort_by) => {

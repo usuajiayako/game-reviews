@@ -5,6 +5,7 @@ import ReviewsList from "./ReviewsList";
 import  { Router } from "@reach/router";
 import SingleReview from "./SingleReview";
 import React, { Component } from 'react';
+import ErrorPage from './ErrorPage';
 
 class App extends Component {
 
@@ -22,6 +23,7 @@ class App extends Component {
         <Title user={this.state} logout={this.logout}/>
         <NavBar/>
         <Router className="reviewsList">
+        <ErrorPage default />
         <ReviewsList path="/"/>
         <ReviewsList path="/reviews"/>
         <ReviewsList path="/reviews/:category"/>
