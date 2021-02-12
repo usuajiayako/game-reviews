@@ -7,6 +7,7 @@ class Comments extends Component {
   state = { 
     comments:[],
     newComment: "",
+    deleteMessage: "",
    }
 
    componentDidMount = () => {
@@ -16,9 +17,15 @@ class Comments extends Component {
    }
 
    componentDidUpdate = (prevProps, prevState) => {
-     if(this.state.newComment !== prevState.newComment)
+     
+    if(this.state.newComment !== prevState.newComment)
      api.postComment(this.props.review_id, this.state.newComment, this.props.user.username)
      .then((res) => this.setState({comments: [res.comment, ...prevState.comments]}))
+     
+     if(this.state.deleteMessage !== prevState.deleteMessage)
+     api.getComments(this.props.review_id)
+     .then(({ comments }) => 
+       this.setState({ comments, deleteMessage: ""}))
    }
 
    commentSubmit = (event) => {
@@ -26,6 +33,11 @@ class Comments extends Component {
     this.setState({newComment: event.target[0].form[0].value})
    }
   
+   deleteComment = (comment_id) => {
+    api.deleteComment(comment_id);
+    this.setState({deleteMessage: "Comment deleted."})
+   }
+
   render() { 
     const { comments } = this.state;
     console.log(this.state)
@@ -44,7 +56,7 @@ class Comments extends Component {
         <p>{comment.body}</p>
         <UpdateVotes votes={comment.votes} id={comment.comment_id} from="comments"/>
         <p>Posted at: {comment.created_at.slice(0, 10)}</p>
-        <button onClick={this.deleteComment} disabled={
+        <button onClick={() => this.deleteComment(comment.comment_id)} disabled={
           comment.author !== this.props.user.username}>Delete</button>
       </li>
       )}

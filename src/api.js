@@ -46,3 +46,7 @@ export const postComment = (review_id, newComment, username) => {
     .then((response) => response.data)
     .catch((err) => console.dir(err))
 }
+
+export const deleteComment = (comment_id) => {
+return axios.delete(`https://game-reviews-ayakobland.herokuapp.com/api/comments/${comment_id}`).then(() => console.log("success"))
+}
