@@ -21,7 +21,7 @@ class SingleReview extends Component {
     return ( 
       <>
       <section className="singleReview">
-        <Link to="/">Go Back to the List</Link>
+        <Link to="/">Go Back to the Whole List</Link>
         <p>Category: {review.category} </p>
         <p>Designer : {review.designer}</p>
         <p>Title : {review.title}</p>

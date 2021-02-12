@@ -19,7 +19,6 @@ class Comments extends Component {
     const { comments } = this.state;
     return (
       <>
-      <SortButton/>
        { comments.map((comment) => 
        <li key={comment.comment_id} className="comment">
         <p>Author: {comment.author}</p>

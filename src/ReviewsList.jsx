@@ -49,6 +49,7 @@ class ReviewsList extends Component {
        { this.state.reviews.map((review) => 
          <li key={review.review_id} 
          className="review">
+           <Link to="/">Go Back to the Whole List</Link>
            <Link to={`/reviews/single_review/${review.review_id}`}>
            <p>Category: {review.category}</p>
            <p>{"Title : " + review.title}</p>

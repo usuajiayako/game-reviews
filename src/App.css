@@ -8,6 +8,13 @@
   border: 4px red solid;
 }
 
+.login {
+  border: 4px orange solid;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
 .navbar {
   border: 4px green solid;
   display: flex;
