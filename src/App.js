@@ -9,7 +9,7 @@ import React, { Component } from 'react';
 class App extends Component {
 
   state = {
-    username: "Ayako"
+    username: "jessjelly"
   }
 
   logout = () => {
@@ -25,7 +25,7 @@ class App extends Component {
         <ReviewsList path="/"/>
         <ReviewsList path="/reviews"/>
         <ReviewsList path="/reviews/:category"/>
-        <SingleReview path="/reviews/single_review/:review_id"/>
+        <SingleReview path="/reviews/single_review/:review_id" user={this.state}/>
         </Router>
       </div>
     );

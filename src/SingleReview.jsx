@@ -17,7 +17,8 @@ class SingleReview extends Component {
   }
 
   render() { 
-    const  review  = this.state.review
+    const  review  = this.state.review;
+
     return ( 
       <>
       <section className="singleReview">
@@ -31,7 +32,7 @@ class SingleReview extends Component {
         <p><img src={review.review_img_url} className="img"/></p>
       </section>
         <h2>Comments</h2>
-        <Comments review_id={this.props.review_id}/>
+        <Comments review_id={this.props.review_id} user={this.props.user}/>
       </>
     );
   }

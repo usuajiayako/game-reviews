@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import * as api from "./api";
 import "./App.css";
 import UpdateVotes from "./UpdateVotes";
-import SortButton from "./SortButton";
 
 class Comments extends Component {
   state = { 
     comments:[],
+    newComment: "",
    }
 
    componentDidMount = () => {
@@ -15,10 +15,28 @@ class Comments extends Component {
       this.setState({ comments }))
    }
 
+   componentDidUpdate = (prevProps, prevState) => {
+     if(this.state.newComment !== prevState.newComment)
+     api.postComment(this.props.review_id, this.state.newComment, this.props.user.username)
+     .then((res) => this.setState({comments: [res.comment, ...prevState.comments]}))
+   }
+
+   commentSubmit = (event) => {
+    event.preventDefault();
+    this.setState({newComment: event.target[0].form[0].value})
+   }
+  
   render() { 
     const { comments } = this.state;
+    console.log(this.state)
     return (
       <>
+        <form onSubmit={this.commentSubmit}>
+          <label> Leave your comment: 
+          <input type="text"/>
+          </label>
+          <button type="submit">Submit</button>
+        </form>
        { comments.map((comment) => 
        <li key={comment.comment_id} className="comment">
         <p>Author: {comment.author}</p>
@@ -26,6 +44,8 @@ class Comments extends Component {
         <p>{comment.body}</p>
         <UpdateVotes votes={comment.votes} id={comment.comment_id} from="comments"/>
         <p>Posted at: {comment.created_at.slice(0, 10)}</p>
+        <button onClick={this.deleteComment} disabled={
+          comment.author !== this.props.user.username}>Delete</button>
       </li>
       )}
      </>

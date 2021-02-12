@@ -37,3 +37,12 @@ export const updateVotes = (num, id, from) => {
    .catch((err) => err)
   }
 }
+
+export const postComment = (review_id, newComment, username) => {
+  console.log(review_id, newComment, username)
+  return axios.post(`https://game-reviews-ayakobland.herokuapp.com/api/reviews/${review_id}/comments`, {
+    username: username, 
+    body: newComment})
+    .then((response) => response.data)
+    .catch((err) => console.dir(err))
+}
