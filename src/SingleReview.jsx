@@ -17,7 +17,7 @@ class SingleReview extends Component {
   }
 
   render() { 
-    const  review  = this.state.review;
+    const review = this.state.review;
 
     return ( 
       <>

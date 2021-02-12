@@ -10,11 +10,15 @@ import ErrorPage from './ErrorPage';
 class App extends Component {
 
   state = {
-    username: "jessjelly"
+    username: "jessjelly",
+    isLoggedIn: true,
   }
 
   logout = () => {
-    this.setState({username: ""})
+    if (this.state.username === "jessjelly")
+    this.setState({username: "", isLoggedIn: false })
+    if (this.state.username === "")
+    this.setState({username: "jessjelly", isLoggedIn: true })
   }
 
   render() {

@@ -41,6 +41,7 @@ class Comments extends Component {
   render() { 
     const { comments } = this.state;
     console.log(this.state)
+    console.log(this.props)
     return (
       <>
         <form onSubmit={this.commentSubmit}>

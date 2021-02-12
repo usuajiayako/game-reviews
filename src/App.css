@@ -4,8 +4,12 @@
   height: 100vh;
 }
 
+
 .title {
   border: 4px red solid;
+  background-color: palevioletred;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .login {
@@ -19,6 +23,7 @@
   border: 4px green solid;
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
 }
 
 .sortbutton {
@@ -31,9 +36,11 @@
 }
 
 .review{
-  border: 4px rgb(88, 230, 235) solid;
+  border: 2px solid black;
   color: rgb(10, 10, 10);
-  
+  background-color: paleturquoise;
+  margin-top: 20px;
+  border-radius: 10px;
 }
 
 .review:link {
@@ -45,13 +52,20 @@
 }
 
 .comment {
-  border: 4px rgb(240, 138, 6) solid;
+  border: 2px rgb(240, 138, 6) solid;
+  margin-top: 20px;
+  padding-bottom: 20px;
+  background-color:palegreen;
+  border-radius: 10px;
 }
 
 .vote_button {
-  border: 4px rgb(240, 6, 189) solid;
+  border: 2px rgb(240, 6, 189) solid;
   display: flex;
   justify-content: space-around;
+  border-radius: 25px;
+  margin-left: 100px;
+  margin-right: 100px;
 }
 
 .img {
@@ -60,5 +74,7 @@
 }
 
 .singleReview {
-  border: 4px rgb(6, 240, 25) solid;
+  border: 2px black solid;
+  background-color:palegoldenrod;
+  border-radius: 10px;
 }
