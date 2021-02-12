@@ -5,12 +5,12 @@ export const getCategories = () => {
  .then(res => res.data)
 }
 
-export const getReviews = (category, sortby) => {
-  console.log("c", category)
-  console.log("s", sortby)
+export const getReviews = (category, sort_by, order) => {
+  console.log(category, sort_by, order)
     return axios.get(`https://game-reviews-ayakobland.herokuapp.com/api/reviews`, { params: {
       category: category,
-      sort_by: sortby,
+      sort_by: sort_by,
+      order: order,
     }
     }).then(res => res.data)
 }

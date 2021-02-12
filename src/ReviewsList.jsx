@@ -8,39 +8,45 @@ class ReviewsList extends Component {
   state = { 
     reviews: [],
     category: "",
-    sortby: "",
+    sort_by: "",
+    order: "desc",
    }
 
    componentDidMount = () => {
     api.getReviews(this.props.category)
-    .then(({ reviews }) => this.setState({ reviews }))}
+    .then(({ reviews }) => this.setState({ reviews }))
+  }
 
    componentDidUpdate = (prevProps, prevState) => {  
-    //  console.log("thisprop", this.props.category)
-    //  console.log("prevprop", prevState.category)
 
      if (this.props.category !== prevProps.category 
-      || this.state.sortby !== prevState.sortby)
-
-     api.getReviews(this.props.category, this.state.sortby)
+      || this.state.sort_by !== prevState.sort_by 
+      || this.state.order !== prevState.order)
+     api.getReviews(this.props.category, this.state.sort_by, this.state.order)
      .then(({ reviews }) => this.setState({ reviews }))
   
   }
 
-  sortby = (sortby) => {
-    console.log(sortby)
-    this.setState({ sortby })
+  sort_by = (sort_by) => {
+    this.setState({ sort_by })
+  }
+
+  order = () => {
+    if (this.state.order === "desc") this.setState({order: "asc" })
+    if (this.state.order === "asc") this.setState({order: "desc" })
+
   }
 
   render() { 
     console.log(this.state)
     return ( 
       <>
-      <SortButton sortby={this.sortby}/>
+      <SortButton sort_by={this.sort_by} order={this.order}/>
        { this.state.reviews.map((review) => 
          <li key={review.review_id} 
          className="review">
            <Link to={`/reviews/single_review/${review.review_id}`}>
+           <p>Category: {review.category}</p>
            <p>{"Title : " + review.title}</p>
            <p>{review.review_body}</p>
            <p>{review.comment_count} comments</p>
