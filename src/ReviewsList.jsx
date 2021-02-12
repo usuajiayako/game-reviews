@@ -10,6 +10,7 @@ class ReviewsList extends Component {
     category: "",
     sort_by: "",
     order: "desc",
+    owner: "",
    }
 
    componentDidMount = () => {
@@ -18,11 +19,11 @@ class ReviewsList extends Component {
   }
 
    componentDidUpdate = (prevProps, prevState) => {  
-
      if (this.props.category !== prevProps.category 
       || this.state.sort_by !== prevState.sort_by 
-      || this.state.order !== prevState.order)
-     api.getReviews(this.props.category, this.state.sort_by, this.state.order)
+      || this.state.order !== prevState.order
+      || this.state.owner !== prevState.owner)
+     api.getReviews(this.props.category, this.state.sort_by, this.state.order, this.state.owner)
      .then(({ reviews }) => this.setState({ reviews }))
   
   }
@@ -34,7 +35,10 @@ class ReviewsList extends Component {
   order = () => {
     if (this.state.order === "desc") this.setState({order: "asc" })
     if (this.state.order === "asc") this.setState({order: "desc" })
+  }
 
+  owner = (owner) => {
+    this.setState({owner})
   }
 
   render() { 
@@ -49,9 +53,10 @@ class ReviewsList extends Component {
            <p>Category: {review.category}</p>
            <p>{"Title : " + review.title}</p>
            <p>{review.review_body}</p>
-           <p>{review.comment_count} comments</p>
-           <p>Date : {review.created_at.slice(0, 10)}</p>
            </Link>
+           <p>{review.comment_count} comments</p>
+           <p>Poseted by : <button onClick={() => {this.owner(review.owner)}}>{review.owner}</button></p>
+           <p>Date : {review.created_at.slice(0, 10)}</p>
            </li>
       )}
      </>
