@@ -18,11 +18,6 @@ class Comments extends Component {
    }
 
    componentDidUpdate = (prevProps, prevState) => {
-     
-    if(this.state.newComment !== prevState.newComment)
-     api.postComment(this.props.review_id, this.state.newComment, this.props.user.username)
-     .then((res) => this.setState({comments: [res.comment, ...prevState.comments]}))
-     
      if(this.state.deleteMessage !== prevState.deleteMessage)
      api.getComments(this.props.review_id)
      .then(({ comments }) => 
@@ -31,7 +26,9 @@ class Comments extends Component {
 
    commentSubmit = (event) => {
     event.preventDefault();
-    this.setState({newComment: event.target[0].form[0].value, noComment: !this.state.noComment})
+     api.postComment(this.props.review_id, this.state.newComment, this.props.user.username)
+     .then((res) => this.setState({comments: [res.comment, ...this.state.comments], newComment: ""}))
+    
    }
   
    deleteComment = (comment_id) => {
@@ -39,18 +36,21 @@ class Comments extends Component {
     this.setState({deleteMessage: "Comment deleted."})
    }
 
+   handleChange = (event) => {
+    this.setState({newComment: event.target.value})
+   }
+
   render() { 
     const { comments } = this.state;
-    console.log(this.state)
-    console.log(this.props)
+    console.log(this.state.newComment)
     return !this.state.comments.length ? 
     <p>Sorry, No Comments Found</p> : (
       <>
         <form onSubmit={this.commentSubmit}>
           <label> Leave your comment: 
-          <input type="text"/>
+          <input type="text" onChange={this.handleChange} value={this.state.newComment}/>
           </label>
-          <button type="submit" className="button">Submit</button>
+          <button type="submit" className="button" disabled={this.state.newComment ? false : true}>Submit</button>
           </form>
        { comments.map((comment) => 
        <li key={comment.comment_id} className="comment">

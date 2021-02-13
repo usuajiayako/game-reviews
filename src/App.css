@@ -14,19 +14,21 @@
 }
 
 .login {
-  border: 4px orange solid;
+  background-color: peachpuff;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
 }
 
 .navbar {
-  border: 4px green solid;
+  background-color: palegreen;
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
   margin-top: 10px;
   margin-bottom: 20px;
+  padding-top: 10px;
+  padding-bottom: 5px;
 }
 
 .button {
@@ -50,7 +52,6 @@
   }
 
 .reviewsList {
-  border: 4px yellow solid;
   list-style-type: none;
 }
 
