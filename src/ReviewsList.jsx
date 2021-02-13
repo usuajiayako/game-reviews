@@ -11,11 +11,12 @@ class ReviewsList extends Component {
     sort_by: "",
     order: "desc",
     owner: "",
+    isLoading: true,
    }
 
    componentDidMount = () => {
     api.getReviews(this.props.category)
-    .then(({ reviews }) => this.setState({ reviews }))
+    .then(({ reviews }) => this.setState({ reviews, isLoading: false }))
   }
 
    componentDidUpdate = (prevProps, prevState) => {  
@@ -42,7 +43,9 @@ class ReviewsList extends Component {
 
   render() { 
     console.log(this.state)
-    return ( 
+    return this.state.isLoading ? (
+      <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+    ) : ( 
       <>
       <SortButton sort_by={this.sort_by} order={this.order}/>
        { this.state.reviews.map((review) => 
