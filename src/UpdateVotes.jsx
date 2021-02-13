@@ -14,9 +14,9 @@ class UpdateVotes extends Component {
   render() { 
     return ( 
       <div className="vote_button">
-        <button disabled={this.state.votes === 1} onClick={()=>{this.handleClick(1)}}>❤️</button>
+        <button disabled={this.state.votes === 1} onClick={()=>{this.handleClick(1)} }className="button">❤️</button>
         <p>Votes: {this.props.votes + this.state.votes}</p>
-        <button disabled={this.state.votes === -1} onClick={()=>{this.handleClick(-1)}}>💙</button>
+        <button disabled={this.state.votes === -1} onClick={()=>{this.handleClick(-1)} }className="button">💙</button>
       </div>
      );
   }

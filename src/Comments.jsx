@@ -48,7 +48,7 @@ class Comments extends Component {
           <label> Leave your comment: 
           <input type="text"/>
           </label>
-          <button type="submit">Submit</button>
+          <button type="submit" className="button">Submit</button>
         </form>
        { comments.map((comment) => 
        <li key={comment.comment_id} className="comment">

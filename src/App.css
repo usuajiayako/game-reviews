@@ -2,6 +2,7 @@
   text-align: center;
   border: 4px black solid;
   height: 100vh;
+  font-family:'Roboto',sans-serif;
 }
 
 
@@ -26,9 +27,25 @@
   flex-wrap: wrap;
 }
 
-.sortbutton {
-  border: 4px blue solid;
+.button {
+  border: 2px blue solid;
+  display: inline-block;
+  padding: 0.3em 1.2em;
+  margin: 0 0.3em 0.3em 0;
+  border-radius:2em;
+  box-sizing: border-box;
+  text-decoration:none;
+  font-family:'Roboto',sans-serif;
+  font-weight:300;
+  color:#FFFFFF;
+  background-color:#4eb5f1;
+  text-align:center;
+  transition: all 0.2s;
 }
+
+.button:hover {
+  background-color:#4095c6;
+  }
 
 .reviewsList {
   border: 4px yellow solid;

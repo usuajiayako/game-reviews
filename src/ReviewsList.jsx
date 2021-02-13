@@ -58,7 +58,7 @@ class ReviewsList extends Component {
            <p>{review.review_body}</p>
            </Link>
            <p>{review.comment_count} comments</p>
-           <p>Poseted by : <button onClick={() => {this.owner(review.owner)}}>{review.owner}</button></p>
+           <p>Poseted by : <button onClick={() => {this.owner(review.owner)}} className="button">{review.owner}</button></p>
            <p>Date : {review.created_at.slice(0, 10)}</p>
            </li>
       )}
