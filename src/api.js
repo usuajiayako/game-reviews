@@ -15,7 +15,6 @@ export const getReviews = (category, sort_by, order, owner) => {
     }
     })
     .then(res => res.data)
-    .catch((err) => console.log(err))
 }
 
 export const getReviewById = (review_id) => {
@@ -26,6 +25,7 @@ export const getReviewById = (review_id) => {
 export const getComments = (review_id) => {
   return axios.get(`https://game-reviews-ayakobland.herokuapp.com/api/reviews/${review_id}/comments`)
   .then(res => res.data)
+  .catch((err) => console.dir(err))
 }
 
 export const updateVotes = (num, id, from) => { 

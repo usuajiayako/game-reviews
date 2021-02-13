@@ -14,6 +14,7 @@ class Comments extends Component {
     api.getComments(this.props.review_id)
     .then(({ comments }) => 
       this.setState({ comments }))
+    .catch(err => console.log(err))
    }
 
    componentDidUpdate = (prevProps, prevState) => {
@@ -30,7 +31,7 @@ class Comments extends Component {
 
    commentSubmit = (event) => {
     event.preventDefault();
-    this.setState({newComment: event.target[0].form[0].value})
+    this.setState({newComment: event.target[0].form[0].value, noComment: !this.state.noComment})
    }
   
    deleteComment = (comment_id) => {
@@ -42,14 +43,15 @@ class Comments extends Component {
     const { comments } = this.state;
     console.log(this.state)
     console.log(this.props)
-    return (
+    return !this.state.comments.length ? 
+    <p>Sorry, No Comments Found</p> : (
       <>
         <form onSubmit={this.commentSubmit}>
           <label> Leave your comment: 
           <input type="text"/>
           </label>
           <button type="submit" className="button">Submit</button>
-        </form>
+          </form>
        { comments.map((comment) => 
        <li key={comment.comment_id} className="comment">
         <p>Author: {comment.author}</p>
@@ -58,7 +60,7 @@ class Comments extends Component {
         <UpdateVotes votes={comment.votes} id={comment.comment_id} from="comments"/>
         <p>Posted at: {comment.created_at.slice(0, 10)}</p>
         <button onClick={() => this.deleteComment(comment.comment_id)} disabled={
-          comment.author !== this.props.user.username}>Delete</button>
+          comment.author !== this.props.user.username}className="button">Delete</button>
       </li>
       )}
      </>

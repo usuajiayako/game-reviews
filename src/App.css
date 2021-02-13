@@ -25,6 +25,8 @@
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+  margin-top: 10px;
+  margin-bottom: 20px;
 }
 
 .button {
@@ -58,6 +60,7 @@
   background-color: paleturquoise;
   margin-top: 20px;
   border-radius: 10px;
+  padding-top: 20px;
 }
 
 .review:link {
@@ -94,6 +97,7 @@
   border: 2px black solid;
   background-color:palegoldenrod;
   border-radius: 10px;
+  padding-top: 20px;
 }
 
 /* Loading-spinner */

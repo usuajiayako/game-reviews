@@ -22,7 +22,7 @@ class SingleReview extends Component {
     return ( 
       <>
       <section className="singleReview">
-        <Link to="/">Go Back to the Whole List</Link>
+        <Link to="/"><button className="button">Go Back to the Whole List</button></Link>
         <p>Category: {review.category} </p>
         <p>Designer : {review.designer}</p>
         <p>Title : {review.title}</p>

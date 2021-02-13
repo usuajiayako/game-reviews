@@ -44,14 +44,16 @@ class ReviewsList extends Component {
   render() { 
     console.log(this.state)
     return this.state.isLoading ? (
-      <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+      <div className="lds-ring"><div></div><div></div><div></div><div></div></div>
     ) : ( 
+      !this.state.reviews.length ? 
+    <p>Sorry, No Reviews Found</p> :
       <>
       <SortButton sort_by={this.sort_by} order={this.order}/>
        { this.state.reviews.map((review) => 
          <li key={review.review_id} 
          className="review">
-           <Link to="/">Go Back to the Whole List</Link>
+           <Link to="/"><button className="button">Go Back to the Whole List</button></Link>
            <Link to={`/reviews/single_review/${review.review_id}`}>
            <p>Category: {review.category}</p>
            <p>{"Title : " + review.title}</p>

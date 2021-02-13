@@ -8,6 +8,7 @@ const Title = (props) => {
     <p>Logged in as : {props.user.username}</p>
     {props.user.isLoggedIn === true ? <button onClick={props.logout} className="button">Logout</button> : <button onClick={props.logout} className="button">LogIn</button>}
     </div>
+    <h3>Category</h3>
     </header>
     );
 }
