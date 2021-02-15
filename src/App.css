@@ -81,10 +81,8 @@
 }
 
 .vote_button {
-  border: 2px rgb(240, 6, 189) solid;
   display: flex;
   justify-content: space-around;
-  border-radius: 25px;
   margin-left: 100px;
   margin-right: 100px;
 }

@@ -7,19 +7,25 @@ import UpdateVotes from "./UpdateVotes";
 
 class SingleReview extends Component {
   state = { 
-    review: {}
+    review: []
   }
   
   componentDidMount = () => {
     api.getReviewById(this.props.review_id)
     .then(({ review }) => 
     this.setState({ review }))
+    .catch(err => console.dir(err))
   }
 
   render() { 
     const review = this.state.review;
 
-    return ( 
+    return !this.state.review ? 
+    <>
+    <Link to="/"><button className="button">Go Back to the Whole List</button></Link>
+    <p>Sorry, No Review Found</p>
+    </>
+    : ( 
       <>
       <section className="singleReview">
         <Link to="/"><button className="button">Go Back to the Whole List</button></Link>

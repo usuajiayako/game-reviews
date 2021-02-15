@@ -40,7 +40,7 @@ class Comments extends Component {
     this.setState({newComment: event.target.value})
    }
 
-  render() { 
+   render() { 
     const { comments } = this.state;
     console.log(this.state.newComment)
     return !this.state.comments.length ? 
