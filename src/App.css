@@ -1,13 +1,11 @@
 .App {
   text-align: center;
-  border: 4px black solid;
   height: 100vh;
   font-family:'Roboto',sans-serif;
 }
 
 
 .title {
-  border: 4px red solid;
   background-color: palevioletred;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -56,7 +54,6 @@
 }
 
 .review{
-  border: 2px solid black;
   color: rgb(10, 10, 10);
   background-color: paleturquoise;
   margin-top: 20px;
@@ -97,6 +94,13 @@
   background-color:palegoldenrod;
   border-radius: 10px;
   padding-top: 20px;
+}
+
+@media only screen and (min-width: 770px) {
+.paragraph {
+  margin-left: 100px;
+  margin-right: 100px;
+}
 }
 
 /* Loading-spinner */

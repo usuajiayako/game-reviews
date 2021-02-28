@@ -57,7 +57,7 @@ class ReviewsList extends Component {
            <Link to={`/reviews/single_review/${review.review_id}`}>
            <p>Category: {review.category}</p>
            <p>{"Title : " + review.title}</p>
-           <p>{review.review_body}</p>
+           <p className="paragraph">{review.review_body}</p>
            </Link>
            <p>{review.comment_count} comments</p>
            <p>Posted by : <button onClick={() => {this.owner(review.owner)}} className="button">{review.owner}</button></p>

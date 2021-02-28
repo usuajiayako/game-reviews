@@ -32,7 +32,7 @@ class SingleReview extends Component {
         <p>Category: {review.category} </p>
         <p>Designer : {review.designer}</p>
         <p>Title : {review.title}</p>
-        <p>Review : {review.review_body}</p>
+        <p className="paragraph">Review : {review.review_body}</p>
         <UpdateVotes votes={review.votes} id={review.review_id} from="singleReview"/>
         <p>{review.comment_count} comments</p>
         <p><img src={review.review_img_url} className="img"/></p>

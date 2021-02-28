@@ -56,7 +56,7 @@ class Comments extends Component {
        <li key={comment.comment_id} className="comment">
         <p>Author: {comment.author}</p>
         <p>Comment ID: {comment.comment_id}</p>
-        <p>{comment.body}</p>
+        <p className="paragraph">{comment.body}</p>
         <UpdateVotes votes={comment.votes} id={comment.comment_id} from="comments"/>
         <p>Posted at: {comment.created_at.slice(0, 10)}</p>
         <button onClick={() => this.deleteComment(comment.comment_id)} disabled={
